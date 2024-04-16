@@ -1,0 +1,27 @@
+<form [formGroup]="postForm" (ngSubmit)="onPostSubmit()">
+    <div class="form-group"> 
+        <label for="title">Title</label>
+        <input type ="text" formControlName="title" class="form-control">
+    </div>
+    <div class="form-group"> 
+        <label for="body">Content</label>
+        <input type ="text" formControlName="body" class="form-control">
+    </div>
+    <div class="form-group"> 
+        <label for="userId">userId</label>
+    <select id="userId" formControlName="userId"  class="form-control">
+        <option [value]="num" *ngFor="let num of [0,1,2,3,4,5,6,7,8,9,10]">
+        {{num}}
+        </option>
+    </select>
+    </div>
+    <div class="text-right">
+        <button mat-raised-button color="primary" type="submit" *ngIf="!isInUpdateMode">
+            Add Post
+        </button>
+        <button mat-raised-button color="primary" type="button" *ngIf="isInUpdateMode"
+        (click)="onUpdate()">
+            Update Post
+        </button>
+    </div>
+</form>

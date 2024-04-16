@@ -1,0 +1,23 @@
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">
+                Add Post
+           
+            <button mat-mini-fab color="accent" 
+            (click)="onAddPost()">
+                <mat-icon>add</mat-icon>
+              </button>
+            </h1>
+        </div>
+    </div>
+    
+    <div class="row">                               
+        <div class="col-md-6 offset-3 mt-4 d-flex flex-column-reverse ">
+            <app-post-card 
+            (emitPost)="patchEditValue($event)"
+            (emitDeleteId)="onRemovePost($event)"
+            [postObj]="post" *ngFor="let post of postsArray"></app-post-card>
+        </div>
+    </div>
+
